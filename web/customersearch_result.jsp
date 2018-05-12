@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: hlzhang
@@ -39,20 +41,19 @@
                 <td align="center">客户电话</td>
                 <td align="center">客户地址</td>
             </tr>
-            <%
-                List<User> users = (List<User>) request.getAttribute("users");
-                for (User user:users) {
-            %>
-            <tr class="result">
-                <td><%=user.getName()%></td>
-                <td><%=user.getTel()%></td>
-                <td><%=user.getAddress()%></td>
-                <td><a href="CustomerServlet?mode=detail&id=<%=user.getId() %>">查看</a></td>
-                <td><a href="CustomerServlet?mode=delete&cid=<%=user.getId()%>" onclick=" return confirmDialog();">删除</a></td>
-            </tr>
-            <%
-                }
-            %>
+
+            <c:forEach items="${cs}" var="a">
+                <tr  class="result">
+                    <td>${a.name}</td>
+                    <td>${a.tel}</td>
+                    <td>${a.address}</td>
+                    <td>
+                        <form action="/doDel" method="post"><input type="hidden" value="${a.id}" name="id">
+                            <input type="submit" value="删除" onclick=" return confirmDialog();"></form>
+                    </td>
+                </tr>
+            </c:forEach>
+
             <tr>
                 <td></td>
                 <td><input value="返回" type="button" onclick="location.href='customersearch.jsp'" /></td>

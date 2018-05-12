@@ -17,8 +17,9 @@
     <!-- 将各个页面相同的公用代码保存成外部文件 使用静态导入的方式导入到当前页面 方便后期维护 -->
     <div id="header"><%@include file="inc/header.inc" %></div>
     <div id="main">
-        <form action="CustomerServlet" method="post">
-            <input type="hidden" name="m" value="save">
+        <form action="/doAdd" method="post">
+            <input type="hidden" name="role" value="customer">
+            <input type="hidden" name="pwd" value="123456">
             <table>
                 <tr>
                     <td>客户姓名</td>
