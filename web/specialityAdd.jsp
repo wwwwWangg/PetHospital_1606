@@ -10,7 +10,7 @@
 <head>
     <title>专业添加页面</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link href="styles.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
 </head>
 <body>
 <div>

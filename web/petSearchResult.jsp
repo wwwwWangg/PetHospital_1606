@@ -12,7 +12,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>宠物查询结果页面</title>
-    <link href="styles.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
     <SCRIPT type="text/javascript">
         function confirmDialog()
         {

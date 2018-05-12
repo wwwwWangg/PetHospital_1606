@@ -23,7 +23,14 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>登录页面</title>
-  <link href="styles.css" rel="stylesheet"/>
+  <link href="css/styles.css" rel="stylesheet"/>
+  <script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+  <!-- 软键盘控件start -->
+  <link href="css/keypad/css/framework/form.css" rel="stylesheet" type="text/css"/>
+  <!-- 软键盘控件end -->
+  <script>
+
+  </script>
 </head>
 <body>
 <div>
@@ -39,7 +46,7 @@
         </tr>
         <tr>
           <td>密码</td>
-          <td><input  type="password" name="pwd"/></td>
+          <td><input  type="password" name="pwd" placeholder="请输入密码" class="keypad" keypadMode="full" allowKeyboard="true" value=""/></td>
         </tr>
         <tr>
           <td>验证码</td>
@@ -55,7 +62,6 @@
           <td><input  type="submit" value="登录" /> <input type="reset" value="重置"/></td>
         </tr>
       </table>
-
     </form>
     <h4 align="center" style="color:red"><%=request.getAttribute("msg")==null?"":request.getAttribute("msg") %>
       <%=request.getParameter("para")==null?"":request.getParameter("para") %></h4>
@@ -64,5 +70,7 @@
 
   </div>
 </div>
+<script type="text/javascript" src="css/keypad/js/form/keypad.js"></script>
+<script type="text/javascript" src="css/keypad/js/framework.js"></script>
 </body>
 </html>
