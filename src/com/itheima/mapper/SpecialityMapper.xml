@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.itheima.mapper.SpecialityMapper">
+    <!--根据客户编号获取客户信息 -->
+<!--	<select id="findSpecialityById" parameterType="Integer"
+		resultType="com.itheima.po.Speciality">
+		select * from t_speciality where id = #{id}
+		</select>-->
+	
+	<!--根据客户名模糊查询客户信息列表-->
+<!--	<select id="findSpecialityByName" parameterType="String"
+	    resultType="com.itheima.po.Speciality">
+	    &lt;!&ndash; select * from t_User where username like '%${value}%' &ndash;&gt;
+	    select * from t_speciality where name like concat('%',#{value},'%')
+	</select>-->
+	
+	<!-- 添加客户信息 -->
+	<insert id="addSpeciality" parameterType="com.itheima.po.Speciality">
+	    insert into t_speciality(name,description)
+	    values(#{name},#{description})
+	</insert>
+	
+	<!-- 更新客户信息 -->
+<!--	<update id="updateSpeciality" parameterType="com.itheima.po.Speciality">
+	    update t_speciality set
+	    username=#{username},jobs=#{jobs},phone=#{phone}
+	    where id=#{id}
+	</update>
+	-->
+	<!-- 删除客户信息 -->
+<!--	<delete id="deleteSpeciality" parameterType="Integer">
+	    delete from t_speciality where id=#{id}
+	</delete>-->
+</mapper>

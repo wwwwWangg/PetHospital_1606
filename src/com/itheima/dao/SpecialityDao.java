@@ -1,14 +1,14 @@
 package com.itheima.dao;
-import java.util.List;
+
 import com.itheima.Util.MybatisUtils;
+import com.itheima.po.Speciality;
 import org.apache.ibatis.session.SqlSession;
 
-import com.itheima.po.User;
-import org.springframework.ui.Model;
+import java.util.List;
 
-public class UserDao {
+public class SpecialityDao {
 
-/*    public User findUserByIdTest(Integer id) throws Exception {
+   /* public User findUserByIdTest(Integer id) throws Exception {
         SqlSession sqlSession = MybatisUtils.getSession();
         User User = sqlSession.selectOne("com.itheima.mapper"
                 + ".UserMapper.findUserById", id);
@@ -19,7 +19,7 @@ public class UserDao {
 
     }*/
 
-    public List<User> findUserByNameTest(String name) throws Exception{
+   /* public List<User> findUserByNameTest(String name) throws Exception{
         SqlSession sqlSession = MybatisUtils.getSession();
         List<User> users = sqlSession.selectList("com.itheima.mapper"
                 + ".UserMapper.findUserByName", name);
@@ -31,18 +31,18 @@ public class UserDao {
         sqlSession.close();
         return users;
 
-    }
+    }*/
 
     /**
      * 添加客户
      */
-    public void addUserTest(User user) throws Exception{
+    public void addSpecialityTest(Speciality speciality) throws Exception{
         SqlSession sqlSession = MybatisUtils.getSession();
         // 4、SqlSession执行添加操作
         // 4.1创建User对象，并向对象中添加数据
         // 4.2执行SqlSession的插入方法，返回的是SQL语句影响的行数
         int rows = sqlSession.insert("com.itheima.mapper"
-                + ".UserMapper.addUser", user);
+                + ".SpecialityMapper.addSpeciality", speciality);
         // 4.3通过返回结果判断插入操作是否执行成功
         if(rows > 0){
             System.out.println("您成功插入了"+rows+"条数据！");
@@ -58,7 +58,7 @@ public class UserDao {
     /**
      * 更新客户
      */
-/*    public void updateUserTest(User User) throws Exception{
+    /*public void updateUserTest(User User) throws Exception{
         SqlSession sqlSession = MybatisUtils.getSession();
         // 4、SqlSession执行更新操作
         // 4.1创建User对象，对对象中的数据进行模拟更新
@@ -75,12 +75,12 @@ public class UserDao {
         sqlSession.commit();
         // 5、关闭SqlSession
         sqlSession.close();
-    }*/
-
+    }
+*/
     /**
      * 删除客户
      */
-    public void deleteUserTest(User id) throws Exception{
+  /*  public void deleteUserTest(User id) throws Exception{
         // 1、读取配置文件
         SqlSession sqlSession = MybatisUtils.getSession();
         // 4、SqlSession执行删除操作
@@ -98,5 +98,5 @@ public class UserDao {
         // 5、关闭SqlSession
         sqlSession.close();
     }
-
+*/
 }

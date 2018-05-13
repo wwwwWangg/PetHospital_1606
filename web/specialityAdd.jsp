@@ -16,16 +16,16 @@
 <div>
     <div id="header"><%@include file="inc/header.inc" %></div>
     <div id="main">
-        <form action="VetServlet" method="post">
-            <input type="hidden" name="m" value="addSpec">
+        <form action="/doAddSpe" method="post">
+            <%--<input type="hidden" name="m" value="addSpec">--%>
             <table>
                 <tr>
                     <td>专业名称</td>
-                    <td><input  name="specName"/></td>
+                    <td><input  name="name"/></td>
                 </tr>
                 <tr>
                     <td>专业描述</td>
-                    <td><input  name="specDesc"/></td>
+                    <td><input  name="description"/></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -34,7 +34,7 @@
             </table>
 
         </form>
-        <h4 align="center" style="color:red"><%=request.getAttribute("msg")==null?"":request.getAttribute("msg") %></h4>
+        <h4 align="center" style="color:red">${msg}<%--<%=request.getAttribute("msg")==null?"":request.getAttribute("msg") %>--%></h4>
     </div>
     <div id="footer"></div>
 </div>

@@ -4,10 +4,10 @@
 <!-- namespace表示命名空间 -->
 <mapper namespace="com.itheima.mapper.UserMapper">
     <!--根据客户编号获取客户信息 -->
-	<select id="findUserById" parameterType="Integer"
+<!--	<select id="findUserById" parameterType="Integer"
 		resultType="com.itheima.po.User">
 		select * from t_user where id = #{id}
-	</select>
+	</select>-->
 	
 	<!--根据客户名模糊查询客户信息列表-->
 	<select id="findUserByName" parameterType="String"
@@ -23,11 +23,11 @@
 	</insert>
 	
 	<!-- 更新客户信息 -->
-	<update id="updateUser" parameterType="com.itheima.po.User">
+<!--	<update id="updateUser" parameterType="com.itheima.po.User">
 	    update t_user set
 	    username=#{username},jobs=#{jobs},phone=#{phone}
 	    where id=#{id}
-	</update>
+	</update>-->
 	
 	<!-- 删除客户信息 -->
 	<delete id="deleteUser" parameterType="Integer">

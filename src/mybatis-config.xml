@@ -24,5 +24,6 @@
     <!--2.配置Mapper的位置 -->
     <mappers>
 		<mapper resource="com/itheima/mapper/UserMapper.xml" />
+        <mapper resource="com/itheima/mapper/SpecialityMapper.xml" />
     </mappers>
 </configuration>

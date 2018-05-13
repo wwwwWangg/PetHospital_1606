@@ -36,7 +36,7 @@
                         <input  type="submit" value="查询" />
                         <input type="reset" value="清空"/>
                         <a href="VetServlet?mode=newVet"  title="转到添加新医生页面">添加新医生</a>
-                        <a href="VetServlet?mode=newSpec"  title="转到添加新专业页面">添加新专业</a>
+                        <a href="/specialityAdd.jsp"  title="转到添加新专业页面">添加新专业</a>
                     </td>
                 </tr>
             </table>
