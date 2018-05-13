@@ -8,95 +8,95 @@ import org.springframework.ui.Model;
 
 public class UserDao {
 
-	public User findUserByIdTest(Integer id) throws Exception {
-	    SqlSession sqlSession = MybatisUtils.getSession();
-		User User = sqlSession.selectOne("com.itheima.mapper"
-				  + ".UserMapper.findUserById", id);
-		System.out.println(User);
-		sqlSession.close();
-		return User;
+    public User findUserByIdTest(Integer id) throws Exception {
+        SqlSession sqlSession = MybatisUtils.getSession();
+        User User = sqlSession.selectOne("com.itheima.mapper"
+                + ".UserMapper.findUserById", id);
+        System.out.println(User);
+        sqlSession.close();
+        return User;
 
 
-	}
+    }
 
-	public List<User> findUserByNameTest(String name) throws Exception{
-	    SqlSession sqlSession = MybatisUtils.getSession();
-	    List<User> users = sqlSession.selectList("com.itheima.mapper"
-					+ ".UserMapper.findUserByName", name);
-	    for (User User : users) {
-	        System.out.println(User);
-	    }
+    public List<User> findUserByNameTest(String name) throws Exception{
+        SqlSession sqlSession = MybatisUtils.getSession();
+        List<User> users = sqlSession.selectList("com.itheima.mapper"
+                + ".UserMapper.findUserByName", name);
+        for (User User : users) {
+            System.out.println(User);
+        }
 
-	    // 5¡¢¹Ø±ÕSqlSession
-	    sqlSession.close();
-	    return users;
+        // 5ã€å…³é—­SqlSession
+        sqlSession.close();
+        return users;
 
-	}
-	
-	/**
-	 * Ìí¼Ó¿Í»§
-	 */
-	public void addUserTest(User user) throws Exception{
-		SqlSession sqlSession = MybatisUtils.getSession();
-	    // 4¡¢SqlSessionÖ´ĞĞÌí¼Ó²Ù×÷
-	    // 4.1´´½¨User¶ÔÏó£¬²¢Ïò¶ÔÏóÖĞÌí¼ÓÊı¾İ
-	    // 4.2Ö´ĞĞSqlSessionµÄ²åÈë·½·¨£¬·µ»ØµÄÊÇSQLÓï¾äÓ°ÏìµÄĞĞÊı
-		int rows = sqlSession.insert("com.itheima.mapper"
-					+ ".UserMapper.addUser", user);
-	    // 4.3Í¨¹ı·µ»Ø½á¹ûÅĞ¶Ï²åÈë²Ù×÷ÊÇ·ñÖ´ĞĞ³É¹¦
-	    if(rows > 0){
-	        System.out.println("Äú³É¹¦²åÈëÁË"+rows+"ÌõÊı¾İ£¡");
-	    }else{
-	        System.out.println("Ö´ĞĞ²åÈë²Ù×÷Ê§°Ü£¡£¡£¡");
-	    }
-	    // 4.4Ìá½»ÊÂÎñ
-	    sqlSession.commit();
-	    // 5¡¢¹Ø±ÕSqlSession
-	    sqlSession.close();
-	}
+    }
 
-	/**
-	 * ¸üĞÂ¿Í»§
-	 */
-	public void updateUserTest(User User) throws Exception{
-		SqlSession sqlSession = MybatisUtils.getSession();
-	    // 4¡¢SqlSessionÖ´ĞĞ¸üĞÂ²Ù×÷
-	    // 4.1´´½¨User¶ÔÏó£¬¶Ô¶ÔÏóÖĞµÄÊı¾İ½øĞĞÄ£Äâ¸üĞÂ
-	    // 4.2Ö´ĞĞSqlSessionµÄ¸üĞÂ·½·¨£¬·µ»ØµÄÊÇSQLÓï¾äÓ°ÏìµÄĞĞÊı
-	    int rows = sqlSession.update("com.itheima.mapper"
-	            + ".UserMapper.updateUser", User);
-	    // 4.3Í¨¹ı·µ»Ø½á¹ûÅĞ¶Ï¸üĞÂ²Ù×÷ÊÇ·ñÖ´ĞĞ³É¹¦
-	    if(rows > 0){
-	        System.out.println("Äú³É¹¦ĞŞ¸ÄÁË"+rows+"ÌõÊı¾İ£¡");
-	    }else{
-	        System.out.println("Ö´ĞĞĞŞ¸Ä²Ù×÷Ê§°Ü£¡£¡£¡");
-	    }
-	    // 4.4Ìá½»ÊÂÎñ
-	    sqlSession.commit();
-	    // 5¡¢¹Ø±ÕSqlSession
-	    sqlSession.close();
-	}
+    /**
+     * æ·»åŠ å®¢æˆ·
+     */
+    public void addUserTest(User user) throws Exception{
+        SqlSession sqlSession = MybatisUtils.getSession();
+        // 4ã€SqlSessionæ‰§è¡Œæ·»åŠ æ“ä½œ
+        // 4.1åˆ›å»ºUserå¯¹è±¡ï¼Œå¹¶å‘å¯¹è±¡ä¸­æ·»åŠ æ•°æ®
+        // 4.2æ‰§è¡ŒSqlSessionçš„æ’å…¥æ–¹æ³•ï¼Œè¿”å›çš„æ˜¯SQLè¯­å¥å½±å“çš„è¡Œæ•°
+        int rows = sqlSession.insert("com.itheima.mapper"
+                + ".UserMapper.addUser", user);
+        // 4.3é€šè¿‡è¿”å›ç»“æœåˆ¤æ–­æ’å…¥æ“ä½œæ˜¯å¦æ‰§è¡ŒæˆåŠŸ
+        if(rows > 0){
+            System.out.println("æ‚¨æˆåŠŸæ’å…¥äº†"+rows+"æ¡æ•°æ®ï¼");
+        }else{
+            System.out.println("æ‰§è¡Œæ’å…¥æ“ä½œå¤±è´¥ï¼ï¼ï¼");
+        }
+        // 4.4æäº¤äº‹åŠ¡
+        sqlSession.commit();
+        // 5ã€å…³é—­SqlSession
+        sqlSession.close();
+    }
 
-	/**
-	 * É¾³ı¿Í»§
-	 */
-	public void deleteUserTest(User id) throws Exception{
-	    // 1¡¢¶ÁÈ¡ÅäÖÃÎÄ¼ş
-		SqlSession sqlSession = MybatisUtils.getSession();
-	    // 4¡¢SqlSessionÖ´ĞĞÉ¾³ı²Ù×÷
-	    // 4.1Ö´ĞĞSqlSessionµÄÉ¾³ı·½·¨£¬·µ»ØµÄÊÇSQLÓï¾äÓ°ÏìµÄĞĞÊı
-	    int rows = sqlSession.delete("com.itheima.mapper"
-	            + ".UserMapper.deleteUser", id);
-	    // 4.2Í¨¹ı·µ»Ø½á¹ûÅĞ¶ÏÉ¾³ı²Ù×÷ÊÇ·ñÖ´ĞĞ³É¹¦
-	    if(rows > 0){
-	        System.out.println("Äú³É¹¦É¾³ıÁË"+rows+"ÌõÊı¾İ£¡");
-	    }else{
-	        System.out.println("Ö´ĞĞÉ¾³ı²Ù×÷Ê§°Ü£¡£¡£¡");
-	    }
-	    // 4.3Ìá½»ÊÂÎñ
-	    sqlSession.commit();
-	    // 5¡¢¹Ø±ÕSqlSession
-	    sqlSession.close();
-	}
+    /**
+     * æ›´æ–°å®¢æˆ·
+     */
+    public void updateUserTest(User User) throws Exception{
+        SqlSession sqlSession = MybatisUtils.getSession();
+        // 4ã€SqlSessionæ‰§è¡Œæ›´æ–°æ“ä½œ
+        // 4.1åˆ›å»ºUserå¯¹è±¡ï¼Œå¯¹å¯¹è±¡ä¸­çš„æ•°æ®è¿›è¡Œæ¨¡æ‹Ÿæ›´æ–°
+        // 4.2æ‰§è¡ŒSqlSessionçš„æ›´æ–°æ–¹æ³•ï¼Œè¿”å›çš„æ˜¯SQLè¯­å¥å½±å“çš„è¡Œæ•°
+        int rows = sqlSession.update("com.itheima.mapper"
+                + ".UserMapper.updateUser", User);
+        // 4.3é€šè¿‡è¿”å›ç»“æœåˆ¤æ–­æ›´æ–°æ“ä½œæ˜¯å¦æ‰§è¡ŒæˆåŠŸ
+        if(rows > 0){
+            System.out.println("æ‚¨æˆåŠŸä¿®æ”¹äº†"+rows+"æ¡æ•°æ®ï¼");
+        }else{
+            System.out.println("æ‰§è¡Œä¿®æ”¹æ“ä½œå¤±è´¥ï¼ï¼ï¼");
+        }
+        // 4.4æäº¤äº‹åŠ¡
+        sqlSession.commit();
+        // 5ã€å…³é—­SqlSession
+        sqlSession.close();
+    }
+
+    /**
+     * åˆ é™¤å®¢æˆ·
+     */
+    public void deleteUserTest(User id) throws Exception{
+        // 1ã€è¯»å–é…ç½®æ–‡ä»¶
+        SqlSession sqlSession = MybatisUtils.getSession();
+        // 4ã€SqlSessionæ‰§è¡Œåˆ é™¤æ“ä½œ
+        // 4.1æ‰§è¡ŒSqlSessionçš„åˆ é™¤æ–¹æ³•ï¼Œè¿”å›çš„æ˜¯SQLè¯­å¥å½±å“çš„è¡Œæ•°
+        int rows = sqlSession.delete("com.itheima.mapper"
+                + ".UserMapper.deleteUser", id);
+        // 4.2é€šè¿‡è¿”å›ç»“æœåˆ¤æ–­åˆ é™¤æ“ä½œæ˜¯å¦æ‰§è¡ŒæˆåŠŸ
+        if(rows > 0){
+            System.out.println("æ‚¨æˆåŠŸåˆ é™¤äº†"+rows+"æ¡æ•°æ®ï¼");
+        }else{
+            System.out.println("æ‰§è¡Œåˆ é™¤æ“ä½œå¤±è´¥ï¼ï¼ï¼");
+        }
+        // 4.3æäº¤äº‹åŠ¡
+        sqlSession.commit();
+        // 5ã€å…³é—­SqlSession
+        sqlSession.close();
+    }
 
 }
