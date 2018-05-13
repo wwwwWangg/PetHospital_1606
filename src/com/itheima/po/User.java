@@ -1,14 +1,12 @@
 package com.itheima.po;
-/**
- * 客户持久化类
- */
+
 public class User {
-	private Integer id;       // 主键id
-	private String role;	//权限
-	private String name;// 客户名称
-	private String pwd; //密码
-	private String address;      // 地址
-	private String tel;     // 电话
+	private Integer id;
+	private String role;
+	private String name;
+	private String pwd;
+	private String address;
+	private String tel;
 
 	public Integer getId() {
 		return id;

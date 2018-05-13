@@ -13,16 +13,23 @@ import java.util.List;
 @Controller
 public class UserController {
     @RequestMapping(value = "/doAdd")
-    public String doAdd(User user)throws Exception{
-        UserDao U = new UserDao();
-        U.addUserTest(user);
-        return "/index.jsp";
+    public String doAdd(User user,Model model)throws Exception{
+       try {
+           UserDao U = new UserDao();
+           U.addUserTest(user);
+           model.addAttribute("msg","添加客户成功");
+           return "/customeradd.jsp";
+       } catch (Exception e){
+           model.addAttribute("msg",e.getMessage());
+           return "customeradd.jsp";
+       }
     }
 
     @RequestMapping(value = "/doDel")
-    public String doDel(User id)throws Exception {
+    public String doDel(User id,Model model)throws Exception {
         UserDao Delete = new UserDao();
         Delete.deleteUserTest(id);
+        model.addAttribute("msg","删除客户成功");
         return "/customersearch.jsp";
     }
     @RequestMapping(value = "/doUpdate")
