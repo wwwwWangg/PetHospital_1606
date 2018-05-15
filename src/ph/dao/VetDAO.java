@@ -37,9 +37,9 @@ public class VetDAO
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_ph", "root", "root");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ph", "root", "root");
             // 1.找符合条件的医生
-//            String sql = "SELECT distinct t_vet.* FROM db_ph.t_vet_speciality INNER JOIN db_ph.t_vet ON (t_vet_speciality.vetId = t_vet.id) INNER JOIN db_ph.t_speciality ON (t_vet_speciality.specId = t_speciality.id) where t_vet.name like ? and t_speciality.name like ?";
+//            String sql = "SELECT distinct t_vet.* FROM ph.t_vet_speciality INNER JOIN ph.t_vet ON (t_vet_speciality.vetId = t_vet.id) INNER JOIN ph.t_speciality ON (t_vet_speciality.specId = t_speciality.id) where t_vet.name like ? and t_speciality.name like ?";
             String sql = "select distinct t_vet.*\n" +
                     "from t_vet, t_speciality, t_vet_speciality\n" +
                     "where t_vet.id = t_vet_speciality.vetId and\n" +
@@ -60,7 +60,7 @@ public class VetDAO
             // 2.循环上面找到的医生，根据医生id为每一个医生封装专业集合==>有vetid 要找所有关联的speciality
             for (Vet v : vets)
             {
-//                sql = "SELECT t_speciality.* FROM    db_ph.t_vet_speciality    INNER JOIN db_ph.t_speciality         ON (t_vet_speciality.specId = t_speciality.id) where t_vet_speciality.vetId=?";
+//                sql = "SELECT t_speciality.* FROM    ph.t_vet_speciality    INNER JOIN ph.t_speciality         ON (t_vet_speciality.specId = t_speciality.id) where t_vet_speciality.vetId=?";
                 sql = "select t_speciality.*\n" +
                         "from t_speciality,  t_vet_speciality\n" +
                         "where t_vet_speciality.specId = t_speciality.id AND\n" +
@@ -123,7 +123,7 @@ public class VetDAO
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_ph", "root", "123456");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ph", "root", "123456");
             //JDBC默认是事务自动提交  即所有的executeUpdate会立即更新到数据库，如果需要使用事务要 1  停止自动提交  2.在操作完成后手动提交  3 出现异常回滚
             //事务1  停止自动提交
             con.setAutoCommit(false);
@@ -201,7 +201,7 @@ public class VetDAO
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_ph","root","root");//  协议://域名(ip):端口/资源（数据库名）
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ph","root","root");//  协议://域名(ip):端口/资源（数据库名）
             ps = con.prepareStatement("delete from t_vet where id=?");
             ps.setInt(1, vetId);
             ps.executeUpdate();

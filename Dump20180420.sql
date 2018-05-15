@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: db_ph
+-- Host: localhost    Database: ph
 -- ------------------------------------------------------
 -- Server version	5.7.20-log
 

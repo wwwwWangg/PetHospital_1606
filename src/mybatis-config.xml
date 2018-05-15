@@ -2,8 +2,11 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
-
 <configuration>
+<!--    &lt;!&ndash;定义别名&ndash;&gt;
+    <typeAliases>
+        <typeAlias alias="role" type="com.itheima.po.Role" />
+    </typeAliases>-->
     <properties resource="db.properties" />
     <!--1.配置环境 ，默认的环境id为mysql-->
     <environments default="mysql">
@@ -25,5 +28,7 @@
     <mappers>
 		<mapper resource="com/itheima/mapper/UserMapper.xml" />
         <mapper resource="com/itheima/mapper/SpecialityMapper.xml" />
+        <mapper resource="com/itheima/mapper/VetMapper.xml" />
+        <!--<mapper resource="com/itheima/mapper/PetMapper.xml" />-->
     </mappers>
 </configuration>

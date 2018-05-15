@@ -27,7 +27,7 @@
             <table>
                 <tr>
                     <td>医生姓名</td>
-                    <td><input  name="vname"/></td>
+                    <td><input  name="name"/></td>
                 </tr>
                 <tr>
                     <td>专业特长</td>

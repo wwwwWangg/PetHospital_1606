@@ -1,0 +1,37 @@
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+&lt;!&ndash; namespace表示命名空间 &ndash;&gt;
+<mapper namespace="com.itheima.mapper.PetMapper">
+    &lt;!&ndash;根据客户编号获取客户信息 &ndash;&gt;
+	<select id="findPetById" parameterType="Integer"
+		resultType="com.itheima.po.Pet">
+		select * from t_Pet where id = #{id}
+		</select>
+	
+	&lt;!&ndash;根据客户名模糊查询客户信息列表&ndash;&gt;
+	<select id="findPetByName" parameterType="String"
+	    resultType="com.itheima.po.Pet">
+	    &lt;!&ndash; select * from t_pet where Petname like '%${value}%' &ndash;&gt;
+	    select * from t_pet where name like concat('%',#{value},'%')
+	</select>
+	
+	&lt;!&ndash; 添加客户信息 &ndash;&gt;
+	<insert id="addPet" parameterType="com.itheima.po.Pet">
+	    insert into t_pet(name,description)
+	    values(#{name},#{description})
+	</insert>
+	
+	&lt;!&ndash; 更新客户信息 &ndash;&gt;
+	<update id="updatePet" parameterType="com.itheima.po.Pet">
+	    update t_pet set
+	    Petname=#{Petname},jobs=#{jobs},phone=#{phone}
+	    where id=#{id}
+	</update>
+	&lt;!&ndash; 删除客户信息 &ndash;&gt;
+	<delete id="deletePet" parameterType="Integer">
+	    delete from t_pet where id=#{id}
+	</delete>
+</mapper>
+-->

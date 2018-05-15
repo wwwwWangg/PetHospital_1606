@@ -41,6 +41,10 @@
                 </tr>
             </table>
         </form>
+        <form action="/doFindVet" method="post">
+            id:<input type="text" name="id" >
+                <input type="submit" value="查询id">
+        </form>
         <h4 align="center" style="color:red"><%=request.getAttribute("msg")==null?"":request.getAttribute("msg") %></h4>
     </div>
     <div id="footer">

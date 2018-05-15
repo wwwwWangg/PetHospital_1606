@@ -1,10 +1,13 @@
 package com.itheima.po;
 
+import java.util.List;
+
 public class Speciality
 {
     private int id;
     private String name;
     private String description;
+    private List<Vet> vets;
 
     public int getId() {
         return id;
@@ -30,12 +33,13 @@ public class Speciality
         this.description = description;
     }
 
-    @Override
-    public String toString() {
-        return "Speciality{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+    public List<Vet> getVets() {
+        return vets;
     }
+
+    public void setVets(List<Vet> vets) {
+        this.vets = vets;
+    }
+
+
 }

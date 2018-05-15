@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间 -->
+<mapper namespace="com.itheima.mapper.VetMapper">
+    <!--多对多嵌套查询 -->
+	<select id="findVetById" parameterType="Integer" resultMap="VetWithSpecialityResult">
+		<!--resultType="com.itheima.po.Vet">-->
+		select * from t_vet where id = #{id}
+		</select>
+        <resultMap id="VetWithSpecialityResult" type="Vet">
+            <id property="id" column="id" />
+            <result property="number" column="number" />
+            <collection property="specs" column="id" ofType="Speciality"
+                        select="com.itheima.mapper.SpecialityMapper.findSpecialityById">
+            </collection>
+        </resultMap>
+
+	
+	<!--根据客户名模糊查询客户信息列表-->
+<!--	<select id="findVetByName" parameterType="String"
+	    resultType="com.itheima.po.Vet">
+	    &lt;!&ndash; select * from t_vet where username like '%${value}%' &ndash;&gt;
+	    select * from t_vet where name like concat('%',#{value},'%')
+	</select>-->
+	
+	<!-- 添加客户信息 -->
+<!--	<insert id="addVet" parameterType="com.itheima.po.Vet">
+	    insert into t_vet(name)
+	    values(#{name})
+	</insert>-->
+	
+	<!-- 更新客户信息 -->
+<!--	<update id="updateVet" parameterType="com.itheima.po.Vet">
+	    update t_vet set
+	    username=#{username},jobs=#{jobs},phone=#{phone}
+	    where id=#{id}
+	</update>-->
+	<!-- 删除客户信息 -->
+<!--	<delete id="deleteVet" parameterType="Integer">
+	    delete from t_vet where id=#{id}
+	</delete>-->
+</mapper>
